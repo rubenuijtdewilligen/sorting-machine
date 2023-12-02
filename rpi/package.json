@@ -1,0 +1,22 @@
+{
+  "name": "chilli-pepper-sorting-rpi",
+  "version": "1.0.0",
+  "description": "The Raspberry Pi program to control a stepper motor with an API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rubenuijtdewilligen/chilli-pepper-sorting.git"
+  },
+  "author": "Ruben Uijtdewilligen <ruben@uijtdewilligenbv.nl>",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/rubenuijtdewilligen/chilli-pepper-sorting/issues"
+  },
+  "homepage": "https://github.com/rubenuijtdewilligen/chilli-pepper-sorting#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
