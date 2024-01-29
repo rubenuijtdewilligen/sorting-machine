@@ -2,7 +2,7 @@
   import '../app.pcss';
 
   import { Icon } from '@steeze-ui/svelte-icon';
-  import { ChartBar, Cog6Tooth, WrenchScrewdriver } from '@steeze-ui/heroicons';
+  import { ChartBar, Cog6Tooth, Squares2x2 } from '@steeze-ui/heroicons';
   import { Sidebar, SidebarLink, SidebarHeading } from '$lib/components';
 
   export let data;
@@ -16,7 +16,7 @@
     <!-- Navbar -->
     <div
       class="
-  sticky top-0 z-30 flex h-16 w-full justify-center bg-primary text-base-content text-white backdrop-blur transition-all duration-100 [transform:translate3d(0,0,0)]
+  bg-primary text-base-content sticky top-0 z-30 flex h-16 w-full justify-center text-white backdrop-blur transition-all duration-100 [transform:translate3d(0,0,0)]
   
   "
     >
@@ -74,7 +74,7 @@
             <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
             <ul
               tabindex="0"
-              class="menu-compact menu dropdown-content mt-3 w-52 rounded-box bg-base-100 p-2 text-black shadow"
+              class="menu-compact menu dropdown-content rounded-box bg-base-100 mt-3 w-52 p-2 text-black shadow"
             >
               <li>
                 <form action="/logout" method="POST">
@@ -100,7 +100,7 @@
     <label for="drawer" class="drawer-overlay" aria-label="Close menu" />
 
     <Sidebar>
-      <ul class="space-y-1 py-0 text-[#abb0c2] lg:menu-md">
+      <ul class="lg:menu-md space-y-1 py-0 text-[#abb0c2]">
         <SidebarHeading title="Sorting Machine" />
         <SidebarLink title="Statistics" href="/sorting-machine/statistics">
           <Icon slot="icon" src={ChartBar} size="1rem" class="mr-2" />
@@ -110,8 +110,8 @@
         </SidebarLink>
 
         <SidebarHeading title="System" />
-        <SidebarLink title="System Settings" href="/system/settings">
-          <Icon slot="icon" src={WrenchScrewdriver} size="1rem" class="mr-2" />
+        <SidebarLink title="Modules" href="/system/modules">
+          <Icon slot="icon" src={Squares2x2} size="1rem" class="mr-2" />
         </SidebarLink>
       </ul>
     </Sidebar>
