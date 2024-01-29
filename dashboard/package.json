@@ -37,6 +37,7 @@
   },
   "type": "module",
   "dependencies": {
+    "@carbon/charts-svelte": "^1.13.24",
     "dotenv": "^16.4.1"
   }
 }
