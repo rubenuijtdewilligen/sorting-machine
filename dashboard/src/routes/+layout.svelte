@@ -1,11 +1,15 @@
 <script>
   import '../app.pcss';
-
   import { Icon } from '@steeze-ui/svelte-icon';
   import { ChartBar, Cog6Tooth, Squares2x2 } from '@steeze-ui/heroicons';
   import { Sidebar, SidebarLink, SidebarHeading } from '$lib/components';
 
   export let data;
+
+  let modules = [];
+  data.modules.forEach((module) => {
+    modules.push(module.name);
+  });
 </script>
 
 <div class="drawer bg-base-100 lg:drawer-open">
@@ -101,13 +105,15 @@
 
     <Sidebar>
       <ul class="lg:menu-md space-y-1 py-0 text-[#abb0c2]">
-        <SidebarHeading title="Sorting Machine" />
-        <SidebarLink title="Statistics" href="/sorting-machine/statistics">
-          <Icon slot="icon" src={ChartBar} size="1rem" class="mr-2" />
-        </SidebarLink>
-        <SidebarLink title="Settings" href="/sorting-machine/settings">
-          <Icon slot="icon" src={Cog6Tooth} size="1rem" class="mr-2" />
-        </SidebarLink>
+        {#if modules.includes('Sorting machine')}
+          <SidebarHeading title="Sorting Machine" />
+          <SidebarLink title="Statistics" href="/sorting-machine/statistics">
+            <Icon slot="icon" src={ChartBar} size="1rem" class="mr-2" />
+          </SidebarLink>
+          <SidebarLink title="Settings" href="/sorting-machine/settings">
+            <Icon slot="icon" src={Cog6Tooth} size="1rem" class="mr-2" />
+          </SidebarLink>
+        {/if}
 
         <SidebarHeading title="System" />
         <SidebarLink title="Modules" href="/system/modules">
