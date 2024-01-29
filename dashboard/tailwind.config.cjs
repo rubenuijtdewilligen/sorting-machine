@@ -14,7 +14,7 @@ const config = {
         corporate: {
           ...require('daisyui/src/theming/themes')['[data-theme=corporate]'],
           primary: '#7ab187',
-          secondary: '#61ba76'
+          secondary: '#6e9974'
         }
       }
     ]
