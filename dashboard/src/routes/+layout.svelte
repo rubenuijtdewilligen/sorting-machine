@@ -1,5 +1,6 @@
 <script>
   import '../app.pcss';
+  import { onMount } from 'svelte';
   import { Icon } from '@steeze-ui/svelte-icon';
   import { ChartBar, Cog6Tooth, Squares2x2 } from '@steeze-ui/heroicons';
   import { Sidebar, SidebarLink, SidebarHeading } from '$lib/components';
@@ -9,6 +10,22 @@
   let modules = [];
   data.modules.forEach((module) => {
     modules.push(module.name);
+  });
+
+  let time = new Date();
+
+  $: hours = time.getHours();
+  $: minutes = time.getMinutes();
+  $: seconds = time.getSeconds();
+
+  onMount(() => {
+    const interval = setInterval(() => {
+      time = new Date();
+    }, 1000);
+
+    return () => {
+      clearInterval(interval);
+    };
   });
 </script>
 
@@ -64,29 +81,7 @@
           </div>
         </div>
         <div class="items-end">
-          <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
-          <!-- svelte-ignore a11y-label-has-associated-control -->
-          <div class="dropdown dropdown-end">
-            <label tabindex="0" class="avatar btn btn-circle btn-ghost">
-              <div class="w-10 rounded-full">
-                <img
-                  src={`https://ui-avatars.com/api/?name=${data.user?.name}`}
-                  alt="Profielfoto"
-                />
-              </div>
-            </label>
-            <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
-            <ul
-              tabindex="0"
-              class="menu-compact menu dropdown-content rounded-box bg-base-100 mt-3 w-52 p-2 text-black shadow"
-            >
-              <li>
-                <form action="/logout" method="POST">
-                  <button>Uitloggen</button>
-                </form>
-              </li>
-            </ul>
-          </div>
+          {hours}:{minutes}:{seconds}
         </div>
       </nav>
     </div>
