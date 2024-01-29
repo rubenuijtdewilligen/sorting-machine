@@ -9,7 +9,15 @@ const config = {
   plugins: [require('daisyui')],
 
   daisyui: {
-    themes: ['corporate']
+    themes: [
+      {
+        corporate: {
+          ...require('daisyui/src/theming/themes')['[data-theme=corporate]'],
+          primary: '#7ab187',
+          secondary: '#61ba76'
+        }
+      }
+    ]
   }
 };
 
